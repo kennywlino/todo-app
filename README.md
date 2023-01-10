@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# LAB - CLASS 31 - 34
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project: ToDo List Manager -- Context API
 
-## Available Scripts
+## Author: Kenny W. Lino
 
-In the project directory, you can run:
+## Problem Domain
 
-### `npm start`
+In this lab, we begin working with React's Context API in order to store global state information in a ToDo List Manager app, given to us as starter code. With the Context API, we store state data about the total number of ToDos to show per page, whether to show completed items, and a value to use as a sort key. After setting up the Context API and wrapping our complete application with its Provider in the index, we use the context data within the List component to control the aforementioned settings.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+We also take a look at the Mantine component library and use the Pagination component to render only the total number of ToDos per page using the Context state data. We also can load new data as we change pages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The starter code also comes with convenient code, including a custom hook, `useForm()`. This custom hook serves as a general hook into our form to interact with our ToDo data. It takes a callback function and any items in state for the default values of a ToDo, which is currently only 'difficulty: 4'. It returns handler functions that can control a submit and a change in a property of the ToDo, which in this case refers to the 'difficulty'. However, with this custom hook, we can add new properties to all ToDo items such as 'category' or 'priority' and still be able to update these properties in state without defining new hooks to maintain state for them. 
 
-### `npm test`
+Similarly, the `useForm()` call currently in the starter code inside the TodDo component is using the `AddItem()` function as a callback, but should we choose to later add other functionalities like a 'modify' option, we could adapt this `useForm()` hook.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Links and Resources
 
-### `npm run build`
+* [CLASS-31: CodeSandbox Link]()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## UML
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![CLASS-31 UML](./assets/CLASS-31_%20Context%20API.jpeg)
