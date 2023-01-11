@@ -20,7 +20,6 @@ const useStyles = createStyles((theme) => ({
 
 
 const SettingsForm = () => {
-
     
     const { 
         showCount,
@@ -29,6 +28,7 @@ const SettingsForm = () => {
         setShowCount,
         setSortKey,
         setShowCompleted,
+        saveToLocalStorage
         
     } = useContext(SettingsContext);
     
@@ -37,6 +37,7 @@ const SettingsForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         //setShowUpdatedSettings(true);
+        saveToLocalStorage();
     }
     
     return (
