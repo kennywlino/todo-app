@@ -10,7 +10,10 @@ const SettingsProvider = ({ children }) => {
     const values = {
         showCount,
         sortKey,
-        showCompleted
+        showCompleted,
+        setShowCount,
+        setSortKey,
+        setShowCompleted,
     };
 
     return (
