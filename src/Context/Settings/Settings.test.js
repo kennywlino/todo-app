@@ -9,21 +9,21 @@ describe('Settings Context', () => {
             <SettingsProvider>
                 <SettingsContext.Consumer>
                     {
-                        ({showCompleted, showCount, sortKey}) => {
+                        ({showCompleted, showCount, sortKey}) => (
                             <ul>
                                 <li data-testid="show-completed">{showCompleted.toString()}</li>
                                 <li data-testid="show-count">{showCount}</li>
                                 <li data-testid="sort-key">{sortKey}</li>
                             </ul>
-                        }
+                        )
                     }
                 </SettingsContext.Consumer>
             </SettingsProvider>
         );
 
-        let completedLi = screen.getByTestId('show-completed');
-        let pageItemLi = screen.getByTestId('show-count');
-        let sortLi = screen.getByTestId('sort-key');
+        let completedLi = screen.queryByTestId('show-completed');
+        let pageItemLi = screen.queryByTestId('show-count');
+        let sortLi = screen.queryByTestId('sort-key');
 
         expect(completedLi).toHaveTextContent('false');
         expect(pageItemLi).toHaveTextContent('3');
