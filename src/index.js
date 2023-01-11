@@ -1,32 +1,17 @@
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import SettingsProvider from './Context/Settings/Settings';
+import { MantineProvider } from '@mantine/core';
 
-import SettingsProvider, { SettingsContext }  from './Settings';
+import App from './App';
 
-describe('Settings Context', () => {
-    test('initial state loads as expected', () => {
-        render(
-            <SettingsProvider>
-                <SettingsContext.Consumer>
-                    {
-                        ({showCompleted, showCount, sortKey}) => (
-                            <ul>
-                                <li data-testid="show-completed">{showCompleted.toString()}</li>
-                                <li data-testid="show-count">{showCount}</li>
-                                <li data-testid="sort-key">{sortKey}</li>
-                            </ul>
-                        )
-                    }
-                </SettingsContext.Consumer>
-            </SettingsProvider>
-        );
-
-        let completedLi = screen.queryByTestId('show-completed');
-        let pageItemLi = screen.queryByTestId('show-count');
-        let sortLi = screen.queryByTestId('sort-key');
-
-        expect(completedLi).toHaveTextContent('false');
-        expect(pageItemLi).toHaveTextContent('3');
-        expect(sortLi).toHaveTextContent('difficulty');
-    })
-})
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <SettingsProvider>
+        <App />
+      </SettingsProvider>
+    </MantineProvider>
+  </React.StrictMode>
+);
