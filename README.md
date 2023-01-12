@@ -14,7 +14,7 @@ The starter code also comes with convenient code, including a custom hook, `useF
 
 Similarly, the `useForm()` call currently in the starter code inside the TodDo component is using the `AddItem()` function as a callback, but should we choose to later add other functionalities like a 'modify' option, we could adapt this `useForm()` hook.
 
-In CLASS-32, we expose the state data within the Context API to the users in the SettingsForm component to allow them to adjust it. This allows them to set the number of ToDos to show per page, as well as to decide whether to show or hide all completed items.
+In CLASS-32, we expose the state data within the Context API to the users in the SettingsForm component to allow them to adjust it. This allows them to set the number of ToDos to show per page, as well as to decide whether to show or hide all completed items and update the sort key.
 
 In CLASS-33, we add login/logout capabilities to our application. We also implement an new Context API in order to store login data as well as utilize role-base access to control portions of our app. For example, users that do not have update permissions cannot change the status of the ToDos, and users that do not have create permissions cannot add any new ToDos.
 
