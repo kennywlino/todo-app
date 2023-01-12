@@ -10,10 +10,12 @@ const App = () => {
   return (
     <>
     <Header />
+      <Auth capability="read">
       <Routes>
         <Route exact path="/" element={<ToDo />} />
         <Route path="/settings" element={<SettingsForm />} />
       </Routes>
+      </Auth>
     <Footer />
     </>
     );

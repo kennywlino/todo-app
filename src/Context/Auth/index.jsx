@@ -64,7 +64,8 @@ const AuthProvider = ({children}) => {
     };
 
     const logout = () => {
-
+        setUser({});
+        setIsLoggedIn(false);
     }
 
     const values = {
