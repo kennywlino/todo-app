@@ -19,7 +19,7 @@ In CLASS-32, we expose the state data within the Context API to the users in the
 ## Links and Resources
 
 * [CLASS-31: CodeSandbox Link](https://fekf9z-3000.preview.csb.app/)
-* [CLASS-32: CodeSandbox Link](https://e60piy-3000.preview.csb.app/)
+* [CLASS-32: CodeSandbox Link](https://ztgg98-3000.preview.csb.app/)
 
 ## UML
 
