@@ -21,8 +21,8 @@ In CLASS-33, we add login/logout capabilities to our application. We also implem
 ## Links and Resources
 
 * [CLASS-31: CodeSandbox Link](https://fekf9z-3000.preview.csb.app/)
-* [CLASS-32: CodeSandbox Link](https://e60piy-3000.preview.csb.app/)
-* [CLASS-33: CodeSandbox Link]()
+* [CLASS-32: CodeSandbox Link](https://ztgg98-3000.preview.csb.app/)
+* [CLASS-33: CodeSandbox Link](https://8duib8-3000.preview.csb.app/)
 
 ## UML
 
