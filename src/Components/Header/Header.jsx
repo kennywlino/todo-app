@@ -2,7 +2,7 @@ import { Button, TextInput, createStyles, Group } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import { AuthContext } from '../../Context/Auth';
-import './Header.scss'
+import Login from '../Login/Login';
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -43,19 +43,7 @@ const Header = () => {
                     <Link className={classes.link} to="/settings">Settings</Link>
                 </Group>
                 <Group>
-                    <form onSubmit={handleLogin} className='login'>
-                        <TextInput 
-                            placeholder="username"
-                            className={classes.textInput}
-                            onChange={(e) => setUsername(e.target.value)}
-                            />
-                        <TextInput 
-                            placeholder="password"
-                            className={classes.textInput}
-                            onChange={(e) => setPassword(e.target.value)}
-                            />
-                        <Button color="dark">Login</Button>
-                    </form>
+                    <Login />
                 </Group>
             </Group>
         </header>
