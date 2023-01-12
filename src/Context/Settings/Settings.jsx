@@ -14,7 +14,6 @@ const SettingsProvider = ({ children }) => {
     useEffect(() => { 
          let storage = JSON.parse(localStorage.getItem('todo'));
          if(storage){
-            console.log('storage', storage);
             setShowCompleted(storage.showCompleted)
             setShowCount(storage.showCount)
             setSortKey(storage.sortKey);

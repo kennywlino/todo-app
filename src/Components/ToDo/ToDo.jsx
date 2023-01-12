@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import List from '../List/List';
 import useForm from '../../hooks/form.js';
+import Auth from '../Auth';
 import { Button, Card, createStyles, Grid, Slider, Text, TextInput } from '@mantine/core';
 
 import { v4 as uuid } from 'uuid';
