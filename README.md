@@ -25,7 +25,7 @@ In CLASS-34, we build upon CLASS-33's login functionality by integrating an API 
 * [CLASS-31: CodeSandbox Link](https://fekf9z-3000.preview.csb.app/)
 * [CLASS-32: CodeSandbox Link](https://ztgg98-3000.preview.csb.app/)
 * [CLASS-33: CodeSandbox Link](https://8duib8-3000.preview.csb.app/)
-* [CLASS-34: CodeSandbox Link]()
+* [CLASS-34: CodeSandbox Link](https://y0ur8y-3000.preview.csb.app/)
 
 ## UML
 
