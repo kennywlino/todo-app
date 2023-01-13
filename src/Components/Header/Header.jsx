@@ -1,7 +1,5 @@
-import { Button, TextInput, createStyles, Group } from '@mantine/core';
-import { useContext, useState } from 'react';
+import { createStyles, Group } from '@mantine/core';
 import { Link } from "react-router-dom";
-import { AuthContext } from '../../Context/Auth';
 import Login from '../Login/Login';
 
 const useStyles = createStyles((theme) => ({
@@ -23,17 +21,6 @@ const useStyles = createStyles((theme) => ({
 
 const Header = () => {
     const { classes } = useStyles();
-
-    const { login, logout, user } = useContext(AuthContext);
-
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-
-    const handleLogin = (e) => {
-        e.preventDefault();
-        login(username, password);
-    }
 
     return (
         <header className={classes.header}>
