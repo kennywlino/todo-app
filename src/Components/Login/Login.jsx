@@ -1,19 +1,10 @@
-import { Button, TextInput, createStyles, PasswordInput } from '@mantine/core';
+import { Button, TextInput } from '@mantine/core';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/Auth';
 import { When } from 'react-if';
 import './Login.scss'
 
-const useStyles = createStyles((theme) => ({
-    textInput: {
-        label: {
-            color: theme.colors.gray[0],
-        }
-    }
-}));
-
 const Login = () => {
-    const { classes } = useStyles();
 
     const { login, logout, isLoggedIn } = useContext(AuthContext);
 
@@ -36,12 +27,11 @@ const Login = () => {
                 <form onSubmit={handleLogin} className='login'>
                     <TextInput 
                         placeholder="username"
-                        className={classes.textInput}
                         onChange={(e) => setUsername(e.target.value)}
                         />
                     <TextInput 
                         placeholder="password"
-                        className={classes.textInput}
+                        type="password"
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     <Button type="submit" color="dark">Login</Button>
