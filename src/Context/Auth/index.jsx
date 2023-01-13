@@ -38,11 +38,9 @@ const AuthProvider = ({children}) => {
     const _validateToken = (token) => {
         try {
             let validUser = jwt_decode(token);
-            console.log('validUser', validUser);
             if(validUser){
                 setUser(validUser);
                 setIsLoggedIn(true);
-                console.log('I am logged in');
             }
         } catch(e) {
             setError(e);
@@ -51,8 +49,6 @@ const AuthProvider = ({children}) => {
     }
 
     const login = async (username, password) => {
-        // let authCredentials = testUsers[username];
-        
         let config = {
             url:'/signin',
             baseURL: 'https://api-js401.herokuapp.com',

@@ -42,25 +42,23 @@ const ToDo = () => {
     }
     const response = await axios(config);
     setList(response.data.results);
-    console.log(response.data.results);
     }
     fetchTodos();
   },[]);
 
   useEffect(() => {
-    switch(action) {
+    switch(crudAction) {
       case 'add':
         async function addTodos() {
           let config = {
             url:'/api/v1/todo',
             baseURL: 'https://api-js401.herokuapp.com',
             method: 'POST',
-            data: item
+            // data: item
           }
           // how do we decide what to add? 
           // filter between what's new and what isn't?
           const response = await axios(config);
-          console.log(response);
         }
         addTodos();
         break;
@@ -68,14 +66,13 @@ const ToDo = () => {
       break;
       case 'delete':
       break;
-      default;
+      default:
     }
   }, [list, crudAction]);
 
   function addItem(item) {
     item.id = uuid();
     item.complete = false;
-    console.log(item);
     setList([...list, item]);
     setCrudAction('add');
   }
