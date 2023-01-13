@@ -1,6 +1,5 @@
-import { Button, TextInput, createStyles, Group } from '@mantine/core';
+import { Button, TextInput, createStyles } from '@mantine/core';
 import { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
 import { AuthContext } from '../../Context/Auth';
 import { When } from 'react-if';
 import './Login.scss'

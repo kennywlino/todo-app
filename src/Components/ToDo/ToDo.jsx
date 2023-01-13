@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import List from '../List/List';
 import useForm from '../../hooks/form.js';
-import Auth from '../Auth';
 import { Button, Card, createStyles, Grid, Slider, Text, TextInput } from '@mantine/core';
 
 import { v4 as uuid } from 'uuid';
+import axios from 'axios';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -31,6 +31,20 @@ const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
+
+  useEffect(() => {    
+    async function fetchTodos() {
+    let config = {
+      url:'/api/v1/todo',
+      baseURL: 'https://api-js401.herokuapp.com',
+      method: 'GET',
+    }
+    const response = await axios(config);
+    setList(response.data.results);
+    console.log(response.data.results);
+    }
+    fetchTodos();
+  },[]);
 
   function addItem(item) {
     item.id = uuid();
