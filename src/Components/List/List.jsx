@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { SettingsContext } from '../../Context/Settings/Settings';
-import { Pagination } from '@mantine/core';
+import { Card, CloseButton, Flex, Pagination } from '@mantine/core';
 import Auth from '../Auth';
 
 const List = (props) => {
@@ -32,7 +32,12 @@ const List = (props) => {
   return (
     <>
     {pageData.map(item => (
-        <div key={item.id}>
+        <Card withBorder key={item.id}>
+          <Flex
+            justify="flex-end"
+          >
+            <CloseButton title="Delete Todo" onClick={() => props.deleteItem(item.id)}/>
+          </Flex>
           <p>{item.text}</p>
           <p><small>Assigned to: {item.assignee}</small></p>
           <p><small>Difficulty: {item.difficulty}</small></p>
@@ -40,7 +45,7 @@ const List = (props) => {
             <div onClick={() => props.toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
           </Auth>
           <hr />
-        </div>
+        </Card>
         )
       )
     }
