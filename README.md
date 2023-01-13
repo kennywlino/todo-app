@@ -18,11 +18,14 @@ In CLASS-32, we expose the state data within the Context API to the users in the
 
 In CLASS-33, we add login/logout capabilities to our application. We also implement an new Context API in order to store login data as well as utilize role-base access to control portions of our app. For example, users that do not have update permissions cannot change the status of the ToDos, and users that do not have create permissions cannot add any new ToDos.
 
+In CLASS-34, we build upon CLASS-33's login functionality by integrating an API for the users. This is done by making an axios call to the API to verify the login data within our Auth Context. We also integrate API calls to grab ToDos from a database instead of using local storage. This is done by using the useEffect() hook to load the data upon page load. To add to this functionality, we also integrate all CRUD functionalities to work in unison with state changes for the Todos.
+
 ## Links and Resources
 
 * [CLASS-31: CodeSandbox Link](https://fekf9z-3000.preview.csb.app/)
 * [CLASS-32: CodeSandbox Link](https://ztgg98-3000.preview.csb.app/)
 * [CLASS-33: CodeSandbox Link](https://8duib8-3000.preview.csb.app/)
+* [CLASS-34: CodeSandbox Link](https://y0ur8y-3000.preview.csb.app/)
 
 ## UML
 

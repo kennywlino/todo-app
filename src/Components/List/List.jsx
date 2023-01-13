@@ -11,18 +11,23 @@ const List = (props) => {
   let allTodos = props.list;
 
   // filtering completed items
-  if (!showCompleted) {
+  if (!showCompleted && allTodos) {
     allTodos = allTodos.filter(todo => !todo.complete);
   }
   
   // variables used to handle the data displayed per page
   const [activePage, setPage] = useState(1);
-  const totalPages = Math.ceil(allTodos.length / showCount);
 
   const startIndex = (activePage - 1) * showCount;
   const endIndex = startIndex + showCount;
+  
+  let totalPages;
+  let pageData = [];
 
-  const pageData = allTodos.slice(startIndex, endIndex);
+  if(allTodos && allTodos.length > 0) {
+    totalPages = Math.ceil(allTodos.length / showCount);
+    pageData = allTodos.slice(startIndex, endIndex);
+  }
 
   return (
     <>

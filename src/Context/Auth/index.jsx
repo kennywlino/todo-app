@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import jwt_decode from 'jwt-decode';
+import axios from 'axios';
 
 export const AuthContext = React.createContext();
 
-const testUsers = {
+/* const testUsers = {
     admin: {
       username: 'admin',
       password: 'ADMIN',
@@ -23,7 +24,7 @@ const testUsers = {
       token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZTBmMGZjMzNjZTQ5MDAxODlmMzhjMCIsImNhcGFiaWxpdGllcyI6WyJyZWFkIl0sInR5cGUiOiJ1c2VyIiwiaWF0IjoxNjU4OTA4OTI0LCJleHAiOjE2NTg5MTI1MjR9.t7c7k2LbaTxsdfYjx_WC3QiP4MycU8sZryVyXQqJQH',
     } 
   }
-
+ */
 const AuthProvider = ({children}) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,11 +38,9 @@ const AuthProvider = ({children}) => {
     const _validateToken = (token) => {
         try {
             let validUser = jwt_decode(token);
-            console.log('validUser', validUser);
             if(validUser){
                 setUser(validUser);
                 setIsLoggedIn(true);
-                console.log('I am logged in');
             }
         } catch(e) {
             setError(e);
@@ -49,12 +48,22 @@ const AuthProvider = ({children}) => {
         }
     }
 
-    const login = (username, password) => {
-        let authCredentials = testUsers[username];
+    const login = async (username, password) => {
+        let config = {
+            url:'/signin',
+            baseURL: 'https://api-js401.herokuapp.com',
+            method: 'post',
+            auth: {username, password}
+        }
 
-        if(authCredentials && authCredentials.password === password) {
+        
+        let response = await axios(config);
+        
+        const { token } =  response.data; 
+
+        if(token) {
             try {
-                _validateToken(authCredentials.token);
+                _validateToken(token);
             } catch(e) {
                 setError(e);
                 console.error(e);

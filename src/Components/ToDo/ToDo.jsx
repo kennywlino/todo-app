@@ -4,6 +4,7 @@ import useForm from '../../hooks/form.js';
 import { Button, Card, createStyles, Grid, Slider, Text, TextInput } from '@mantine/core';
 
 import { v4 as uuid } from 'uuid';
+import axios from 'axios';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -29,12 +30,50 @@ const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
+  const [crudAction, setCrudAction] = useState('');
+
+  useEffect(() => {    
+    async function fetchTodos() {
+    let config = {
+      url:'/api/v1/todo',
+      baseURL: 'https://api-js401.herokuapp.com',
+      method: 'GET',
+    }
+    const response = await axios(config);
+    setList(response.data.results);
+    }
+    fetchTodos();
+  },[]);
+
+  useEffect(() => {
+    switch(crudAction) {
+      case 'add':
+        async function addTodos() {
+          let config = {
+            url:'/api/v1/todo',
+            baseURL: 'https://api-js401.herokuapp.com',
+            method: 'POST',
+            // data: item
+          }
+          // how do we decide what to add? 
+          // filter between what's new and what isn't?
+          const response = await axios(config);
+        }
+        addTodos();
+        break;
+      case 'update':
+      break;
+      case 'delete':
+      break;
+      default:
+    }
+  }, [list, crudAction]);
 
   function addItem(item) {
     item.id = uuid();
     item.complete = false;
-    console.log(item);
     setList([...list, item]);
+    setCrudAction('add');
   }
 
   function deleteItem(id) {
