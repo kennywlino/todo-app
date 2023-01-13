@@ -29,9 +29,7 @@ const Header = () => {
                     <Link className={classes.link} to="/">Home</Link>
                     <Link className={classes.link} to="/settings">Settings</Link>
                 </Group>
-                <Group>
                     <Login />
-                </Group>
             </Group>
         </header>
     )
