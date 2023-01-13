@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import List from '../List/List';
 import useForm from '../../hooks/form.js';
-import Auth from '../Auth';
 import { Button, Card, createStyles, Grid, Slider, Text, TextInput } from '@mantine/core';
 
 import { v4 as uuid } from 'uuid';
@@ -16,7 +15,6 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
     marginTop: theme.spacing.md,
-
   }
 }));
 
@@ -104,7 +102,7 @@ const ToDo = () => {
           </Card>
         </Grid.Col>
         <Grid.Col xs={12} sm={8}>
-          <List list={list} toggleComplete={toggleComplete} />
+          <List list={list} toggleComplete={toggleComplete} deleteItem={deleteItem} />
         </Grid.Col>
       </Grid>
     </>

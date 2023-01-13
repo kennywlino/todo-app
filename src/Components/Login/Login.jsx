@@ -1,6 +1,5 @@
-import { Button, TextInput, createStyles, Group } from '@mantine/core';
+import { Button, TextInput, createStyles, PasswordInput } from '@mantine/core';
 import { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
 import { AuthContext } from '../../Context/Auth';
 import { When } from 'react-if';
 import './Login.scss'
@@ -40,7 +39,7 @@ const Login = () => {
                         className={classes.textInput}
                         onChange={(e) => setUsername(e.target.value)}
                         />
-                    <TextInput 
+                    <PasswordInput 
                         placeholder="password"
                         className={classes.textInput}
                         onChange={(e) => setPassword(e.target.value)}
