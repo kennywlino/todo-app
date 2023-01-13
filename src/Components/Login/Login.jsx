@@ -39,7 +39,7 @@ const Login = () => {
                         className={classes.textInput}
                         onChange={(e) => setUsername(e.target.value)}
                         />
-                    <PasswordInput 
+                    <TextInput 
                         placeholder="password"
                         className={classes.textInput}
                         onChange={(e) => setPassword(e.target.value)}
